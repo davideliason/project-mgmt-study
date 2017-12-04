@@ -6,7 +6,7 @@ import App from '../../client/App.js';
 
 function kaFilterThis(state,ka){
   var result = state.filter(function(obj){
-    return obj.knowledge_area === ka
+    return obj.knowledge_area
   });
   return result
 }
