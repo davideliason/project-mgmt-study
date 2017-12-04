@@ -37,14 +37,14 @@ class App extends Component {
     		this.props.onGetSteps();
     		}
 
-        var filteredArr = this.props.steps.stepgroups.map(function(key,val,array){
-                  return val;
-                });
-     console.log("filtered" + filteredArr);
+        
 
   render() {
   	// const data = this.props.steps;
-     
+     // var filteredArr = this.props.steps.stepgroups.map(function(key,val,array){
+     //              return val;
+     //            });
+     // console.log("filtered" + filteredArr);
 
     return (
 
