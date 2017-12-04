@@ -4,12 +4,17 @@ import {setKaFilter} from '../actions/get_steps.js';
 import {setPgFilter} from '../actions/get_steps.js';
 import App from '../../client/App.js';
 
-
+function kaFilterThis(state,ka){
+  var result = state.filter(function(obj){
+    return obj.knowledge_area === ka
+  });
+  return result
+}
 function mapStateToProps(state) {
   return {
     // steps : filterSteps(state.steps.stepgroups, state.pgFilter,state.kaFilter)
-    steps : state.steps
-    // kaFiltered : kaFilterThis(state.steps.stepgroups)
+    steps : state.steps,
+    kaFiltered : kaFilterThis(state.steps.stepgroups,state.ka)
   }
 }
 
