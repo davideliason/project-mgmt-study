@@ -37,8 +37,14 @@ class App extends Component {
     		this.props.onGetSteps(this.state.local_knowledge_area,this.state.local_process_group);
     		}
 
+        
+
   render() {
   	// const data = this.props.steps;
+     // var filteredArr = this.props.steps.stepgroups.map(function(key,val,array){
+     //              return val;
+     //            });
+     // console.log("filtered" + filteredArr);
 
     return (
 
@@ -54,9 +60,9 @@ class App extends Component {
         
 
          <div>
-         	{this.props.steps.stepgroups && this.props.steps.stepgroups.length > 0 ? (
+         	{this.props.steps && this.props.steps.length > 0 ? (
             <ul>
-              {this.props.steps.stepgroups.map((data, index) => {
+              {this.props.steps.map((data, index) => {
                 return (
                   <li key={index}>
                     {data.data}
