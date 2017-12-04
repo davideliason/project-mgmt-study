@@ -30,10 +30,6 @@ export function stepsReducer(state = {}, action) {
 
       if (steps) {
         newState.tempstepgroups = Object.keys(steps).map(k => steps[k]);
-        newState.stepgroups = newState.tempstepgroups.filter(function(step){
-          return step.knowledge_area === newState.kaFilter
-        });
-        
       }
       return newState;
     }
