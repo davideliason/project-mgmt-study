@@ -21,12 +21,17 @@ export function stepsReducer(state = {}, action) {
         inProgress: false,
         success: 'Got steps.'
       });
+      newState.tempstepgroups = [];
+
       newState.stepgroups = [];
       // newState.kafiltered = [];
 
       if (steps) {
-        newState.stepgroups = Object.keys(steps).map(k => steps[k]);
-        // newState.kafiltered = Object.keys(newState.stepgroups).map(k => newState.stepgroups[k] ===)
+        newState.tempstepgroups = Object.keys(steps).map(k => steps[k]);
+        newState.stepgroups = newState.tempstepgroups.filter(function(step){
+          return step.knowledge_area === "Project Integration Management"
+        });
+        
       }
       return newState;
     }

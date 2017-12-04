@@ -4,14 +4,6 @@ import {setKaFilter} from '../actions/get_steps.js';
 import {setPgFilter} from '../actions/get_steps.js';
 import App from '../../client/App.js';
 
-function kaFilterThis(state){
-    var returnedArr = [];
-    
-    for(let obj of state){
-      returnedArr.push(obj)
-    }
-    return returnedArr;
-}
 
 function mapStateToProps(state) {
   return {
