@@ -8,33 +8,33 @@ import {Jumbotron} from 'react-bootstrap';
 
 
 class App extends Component {
-	// constructor(props){
-	// 	super(props);
-	// 	this.state = {
-	// 		// no need for steps here at this state is component level only
-	// 		local_process_group: 'Initiating',
-	// 		local_knowledge_area: 'Project Integration Management'
-	// 	};
+	constructor(props){
+		super(props);
+		this.state = {
+			// no need for steps here at this state is component level only
+			local_process_group: 'Initiating',
+			local_knowledge_area: 'Project Integration Management'
+		};
 
-	// 	this.handlePGFilterTextChange = this.handlePGFilterTextChange.bind(this);
-	// 	this.handleKAFilterTextChange = this.handleKAFilterTextChange.bind(this);
-	// }
+		this.handlePGFilterTextChange = this.handlePGFilterTextChange.bind(this);
+		this.handleKAFilterTextChange = this.handleKAFilterTextChange.bind(this);
+	}
 
 	
-	  // handlePGFilterTextChange(PGFilterText){
-	  // 	this.setState({
-	  // 		local_process_group: PGFilterText
-	  // 	});
-	  // }
+	  handlePGFilterTextChange(PGFilterText){
+	  	this.setState({
+	  		local_process_group: PGFilterText
+	  	});
+	  }
 
-	  // handleKAFilterTextChange(KAFilterText){
-	  // 	this.setState({
-	  // 		local_knowledge_area: KAFilterText
-	  // 	});
-	  // }
+	  handleKAFilterTextChange(KAFilterText){
+	  	this.setState({
+	  		local_knowledge_area: KAFilterText
+	  	});
+	  }
 
 	   componentDidMount() {
-    		this.props.onGetSteps();
+    		this.props.onGetSteps(this.state.local_knowledge_area,this.state.local_process_group);
     		}
 
   render() {
@@ -48,8 +48,8 @@ class App extends Component {
         </Jumbotron>
         
         <FilterBar
-          onPGFilterTextChange={this.props.setNewPgFiler}
-          onKAFilterTextChange={this.props.setNewKaFilter}
+          onPGFilterTextChange={this.handlePGFilterTextChange}
+          onKAFilterTextChange={this.handleKAFilterTextChange}
          />
         
 

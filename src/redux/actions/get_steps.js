@@ -1,6 +1,6 @@
 import database from './database.js';
 
-export function getSteps(){
+export function getSteps(ka,pg){
 	return dispatch => {
 		dispatch(getStepsRequestedAction());
 		return database.ref('/').once('value',snap => {
@@ -8,7 +8,7 @@ export function getSteps(){
 			// console.log("look" + steps);  // Obj Obj
       		// const { host, agenda, guests } = action.invite;
 
-			dispatch(getStepsFulfilledAction(steps))
+			dispatch(getStepsFulfilledAction(steps,ka,pg))
 		})
 		.catch((error) => {
 			console.log(error);
@@ -29,10 +29,12 @@ function getStepsRejectedAction(){
 	}
 }
 
-function getStepsFulfilledAction(steps){
+function getStepsFulfilledAction(steps,ka,pg){
 	return {
 		type: 'GET_STEPS_FULFILLED',
-		steps
+		steps,
+		ka,
+		pg
 	}
 }
 

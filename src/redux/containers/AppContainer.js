@@ -15,7 +15,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onGetSteps: () => dispatch(getSteps()),
+    onGetSteps: (ka,pg) => dispatch(getSteps(ka,pg)),
     setNewKaFilter: (x) => dispatch(setKaFilter(x)),
     setNewPgFiler: (y) => dispatch(setPgFilter(y))
   };

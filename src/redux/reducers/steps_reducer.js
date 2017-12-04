@@ -19,7 +19,9 @@ export function stepsReducer(state = {}, action) {
       const {steps} = action.steps;
       const newState = Object.assign({}, state, {
         inProgress: false,
-        success: 'Got steps.'
+        success: 'Got steps.',
+        ka: action.ka,
+        pg: action.pg
       });
       newState.tempstepgroups = [];
 
@@ -29,7 +31,7 @@ export function stepsReducer(state = {}, action) {
       if (steps) {
         newState.tempstepgroups = Object.keys(steps).map(k => steps[k]);
         newState.stepgroups = newState.tempstepgroups.filter(function(step){
-          return step.knowledge_area === "Project Integration Management"
+          return step.knowledge_area === newState.kaFilter
         });
         
       }
